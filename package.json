@@ -1,39 +1,41 @@
 {
   "name": "server-ww",
-  "version": "1.0.0",
-  "description": "awesomewindows",
-  "main": "server.js",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./app/index.html",
   "dependencies": {
-    "bcrypt": "^0.8.5",
-    "body-parser": "~1.9.2",
-    "jwt-simple": "^0.3.1",
-    "mongoose": "~4.2.4",
-    "morgan": "~1.5.0",
-    "passport": "^0.3.0",
-    "passport-jwt": "^1.2.1",
-    "angular": "^1.5.8",
-    "angularjs": "0.0.1",
-    "express": "^4.14.0",
-    "mongodb": "^2.2.5",
-    "node": "0.0.0"
+    "agent-base": "^2.0.1",
+    "axios": "^0.13.1",
+    "base64id": "^0.1.0",
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "ejs": "~0.8.5",
+    "engine.io": "^1.6.11",
+    "engine.io-client": "^1.6.11",
+    "express": "^4.x.x",
+    "mongoose": "latest",
+    "morgan": "latest",
+    "readable-stream": "^2.1.4",
+    "socket.io": "latest",
+    "socket.io-client": "^1.4.8"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-shell": "^0.2.9",
+    "node-webkit-builder": "^1.0.8"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sherma-n/server-ww.git"
+  "window": {
+    "title": "server-ww",
+    "toolbar": false,
+    "frame": true,
+    "position": "center",
+    "fullscreen": false,
+    "resizable": false,
+    "width": 1000,
+    "height": 600,
+    "min_width": 600,
+    "min_height": 400
   },
-  "keywords": [
-    "node",
-    "angular",
-    "ionic"
-  ],
-  "author": "Sherman yeh",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Sherma-n/server-ww/issues"
-  },
-  "homepage": "https://github.com/Sherma-n/server-ww#readme"
+  "node-remote": "<local>"
 }

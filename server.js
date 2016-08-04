@@ -3,11 +3,20 @@ var app         = express();
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var mongoose    = require('mongoose');
-var passport  = require('passport');
+var passport    = require('passport');
 var config      = require('./config/database'); // get db config file
 var User        = require('./app/models/user'); // get the mongoose model
 var port        = process.env.PORT || 8080;
 var jwt         = require('jwt-simple');
+
+/**
+ * Init Socket.io
+ */
+const http = require('http');
+var io = require('socket.io');
+const server = require('http').createServer(app);
+io = io.listen(server);
+
 
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,6 +27,9 @@ app.use(morgan('dev'));
 
 // Use the passport package in our application
 app.use(passport.initialize());
+
+// tell express where to serve static files from
+app.use(express.static(__dirname + '/public'));
 
 // demo Route (GET http://localhost:8080)
 app.get('/', function(req, res) {
@@ -117,6 +129,11 @@ getToken = function (headers) {
     return null;
   }
 };
+
+/**
+ * Init Socket.io
+ */
+require('./socket/io')(io);
 
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);
